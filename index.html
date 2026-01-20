@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌤️ Clima – Carregando...</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+</head>
+<body>
+    <!-- Background animado dinâmico -->
+    <div id="weather-background"></div>
+    
+    <!-- Modo de carregamento -->
+    <div id="loading" class="loading-container">
+        <div class="loading-spinner">
+            <div class="spinner-circle"></div>
+        </div>
+        <p class="loading-text">Buscando dados do clima...</p>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="container" id="main-content">
+        <!-- Cabeçalho com modo escuro/claro -->
+        <header class="app-header">
+            <div class="header-left">
+                <h1 class="app-title">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span id="app-name">Clima</span>
+                </h1>
+                <div class="theme-toggle">
+                    <input type="checkbox" id="theme-switch" class="checkbox">
+                    <label for="theme-switch" class="toggle-label">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <div class="toggle-ball"></div>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Busca por cidade -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="city-input" placeholder="Buscar cidade...">
+                    <button id="search-btn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="location-buttons">
+                    <button id="current-location-btn" class="location-btn" title="Usar minha localização">
+                        <i class="fas fa-location-crosshairs"></i>
+                    </button>
+                    <button id="coordinates-btn" class="location-btn" title="Buscar por coordenadas">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="weather-content">
+            <!-- Informações climáticas atuais -->
+            <section class="current-weather">
+                <div class="weather-main">
+                    <div class="location-info">
+                        <h2 id="city-name">--</h2>
+                        <p id="current-date">--</p>
+                    </div>
+                    <div class="temperature-info">
+                        <div class="current-temperature">
+                            <div id="current-temp">--</div>
+                            <div class="weather-description">
+                                <span id="weather-desc">--</span>
+                                <span class="feels-like">
+                                    Sensação: <span id="feels-like-temp">--</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="weather-icon" id="weather-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Detalhes climáticos -->
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <i class="fas fa-wind"></i>
+                        <div class="detail-info">
+                            <span class="detail-label">Vento</span>
+                            <span id="wind-speed" class="detail-value">-- km/h</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-tint"></i>
+                        <div class="detail-info">
+                            <span class="detail-label">Umidade</span>
+                            <span id="humidity" class="detail-value">-- %</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-cloud-rain"></i>
+                        <div class="detail-info">
+                            <span class="detail-label">Chuva</span>
+                            <span id="rain-prob" class="detail-value">-- %</span>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-sun"></i>
+                        <div class="detail-info">
+                            <span class="detail-label">Sol</span>
+                            <span id="sunrise-sunset" class="detail-value">-- / --</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Previsão por hora -->
+            <section class="hourly-forecast">
+                <h3 class="section-title">
+                    <i class="fas fa-clock"></i> Previsão por Hora
+                </h3>
+                <div class="hourly-container">
+                    <div class="hourly-scroll" id="hourly-scroll">
+                        <!-- Conteúdo gerado por JavaScript -->
+                    </div>
+                    <button class="scroll-btn scroll-left" id="scroll-left">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-right" id="scroll-right">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Previsão semanal -->
+            <section class="weekly-forecast">
+                <h3 class="section-title">
+                    <i class="fas fa-calendar-alt"></i> Previsão para 7 Dias
+                </h3>
+                <div class="weekly-cards" id="weekly-forecast">
+                    <!-- Conteúdo gerado por JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal para coordenadas -->
+        <div class="modal" id="coordinates-modal">
+            <div class="modal-content">
+                <h3><i class="fas fa-map-marker-alt"></i> Buscar por Coordenadas</h3>
+                <div class="input-group">
+                    <label for="latitude-input">Latitude:</label>
+                    <input type="number" id="latitude-input" step="0.0001" placeholder="Ex: -23.5505">
+                </div>
+                <div class="input-group">
+                    <label for="longitude-input">Longitude:</label>
+                    <input type="number" id="longitude-input" step="0.0001" placeholder="Ex: -46.6333">
+                </div>
+                <div class="modal-buttons">
+                    <button id="cancel-coordinates" class="btn-secondary">Cancelar</button>
+                    <button id="confirm-coordinates" class="btn-primary">Buscar</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <p>Dados fornecidos por <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></p>
+            <p class="last-update">Última atualização: <span id="last-update">--</span></p>
+        </footer>
+    </div>
+
+    <!-- Notificações -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

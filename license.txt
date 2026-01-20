@@ -1,0 +1,39 @@
+LICENSE – USO RESTRITO
+
+Copyright (c) 2026 Arthur Miguel
+
+Todos os direitos reservados.
+
+Este software/projeto é disponibilizado apenas para fins de
+uso pessoal, educacional e de estudo.
+
+É PERMITIDO:
+- Usar o projeto localmente
+- Estudar o código
+- Modificar o código para uso próprio
+- Executar o projeto em ambiente local (PC, celular ou tablet)
+- Utilizar como base de aprendizado
+
+NÃO É PERMITIDO:
+- Publicar este projeto ou partes dele em redes sociais
+  (incluindo, mas não se limitando a: YouTube, TikTok, Instagram,
+  Facebook, Twitter/X, Discord, Reddit ou similares)
+- Repostar, redistribuir ou compartilhar o código-fonte
+- Publicar como próprio (plágio)
+- Vender ou monetizar este projeto ou derivados
+- Hospedar publicamente (sites, GitHub Pages, repositórios públicos)
+- Criar vídeos, posts ou tutoriais mostrando o código sem autorização
+
+AUTORIZAÇÃO ESCRITA:
+Qualquer uso que envolva publicação, redistribuição ou divulgação
+pública só será permitido mediante autorização explícita e por escrito
+do autor original.
+
+ISENÇÃO DE GARANTIA:
+Este software é fornecido "NO ESTADO EM QUE SE ENCONTRA",
+sem qualquer tipo de garantia, expressa ou implícita.
+O autor não se responsabiliza por danos, perdas de dados
+ou mau funcionamento decorrentes do uso deste projeto.
+
+Ao utilizar este projeto, você concorda automaticamente
+com todos os termos desta licença.
